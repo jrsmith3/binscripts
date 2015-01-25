@@ -1,0 +1,2 @@
+#!/bin/bash
+osascript ~/bin/eject_all_local_disks.app
