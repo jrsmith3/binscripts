@@ -1,2 +1,9 @@
-#! /usr/bin/env bash
-umount /media/DERPLETON
+#!/usr/bin/env bash
+# This script was copied directly from 
+# [Christophe Vu-Brugier](https://stackoverflow.com/users/93414/christophe-vu-brugier)
+# from a [thread on stackoverflow](http://stackoverflow.com/a/19756542).
+
+for usb_dev in /dev/disk/by-id/usb-*; do
+    dev=$(readlink -f $usb_dev)
+    grep -q ^$dev /proc/mounts && umount $dev
+done
